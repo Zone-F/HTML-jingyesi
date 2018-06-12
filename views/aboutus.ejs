@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="static/layui/css/layui.css">
+</head>
+<body>
+<div class="layui-container">
+  <div class="layui-row">
+    <div class="layui-col-xs12">
+      <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 20px">关于我们   www.jingyesi.club,这是一个分享读后感的网站</blockquote>
+      <div class="layui-collapse" lay-accordion>
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title">意见征集</h2>
+          <div class="layui-colla-content layui-show">
+            如果您对我们的网站有什么好的建议，或者对网站糟糕的UI想要吐槽，欢迎发邮件给我。
+            <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;">&#xe650;</i>
+          </div>
+        </div>
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title">技术实现</h2>
+          <div class="layui-colla-content">
+            <p>前端实现: layui框架</p>
+            <p>后端实现: Node.js</p>
+          </div>
+        </div>
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title">作者信息</h2>
+          <div class="layui-colla-content ">
+            <p>作者昵称: 七尺宝蓝盖地虎</p>
+            <p>作者邮箱:zone_98f@qq.com</p>
+          </div>
+        </div>
+      </div>
+      <p></p>
+    </div>
+  </div>
+  <div class="layui-row">
+    <div class="layui-col-xs12">
+      <ul class="layui-timeline" style="margin-top: 30px">
+        <li class="layui-timeline-item">
+          <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+          <div class="layui-timeline-content layui-text">
+            <h3 class="layui-timeline-title">2018年5月7日</h3>
+            <p>
+              整整一年多过去了，我已经是大二下学期了
+              <br/>以前的那些就不说了，总之这个网站我终于实现了,
+              <br/>虽然是简陋，缓慢的一个网站
+              <br/>但我很高兴，第一时间告诉了朋友们
+              <br/>等待我的是一大堆Bug
+            </p>
+          </div>
+        </li>
+        <li class="layui-timeline-item">
+          <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+          <div class="layui-timeline-content layui-text">
+            <div class="layui-timeline-title">过去</div>
+            <p>大一下学期时产生了想做这样一个专门用来分享读后感的网站
+              <br>那时什么都不懂，也是初涉Web前端,刚刚学完布局,甚至不知道有框架这种东西
+              <br>随后就为这个网站开始了学习，学习如何去写
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<script src="static/layui/layui.js"></script>
+<script>
+    //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+
+        //…
+    });
+</script>
+</body>
+</html>

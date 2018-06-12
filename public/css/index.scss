@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/*字体*/
+@import "variable";
+
+.page-one{
+  .nav{
+    font-family: nav-font;
+  }
+  .article-Group{
+    .article-list{
+       border: solid 2px saddlebrown;
+     }
+    img{
+      width: 50px;height: 50px;
+      object-fit: cover;
+    }
+    img,h3,div{
+      display: inline-block;
+      margin-top: 10px;
+    }
+    h3,div{
+      padding-left: 10px;
+    }
+    .title{
+      a{
+        &:hover{
+          color: red;
+        }
+      }
+    }
+    .time{
+      color: #c2c2c2;
+    }
+  }
+  .page-change{
+    margin: 10px;
+    p{
+      margin-top: 10px;
+      color: #FF5722;
+    }
+  }
+  .zilou-block{
+    /*纸篓内容块*/
+    box-shadow: #c2c2c2 1px 1px 1px;
+    span{
+      padding: 5px;
+      display: inline-block;
+      img{
+        width: 75px;height: 75px;
+      }
+    }
+    .zilou-body{
+      /*纸篓文章主体*/
+      padding: 20px;
+      white-space:pre-line;
+      height: 200px;
+    }
+  }
+}
+.zilou-change{
+  margin-top: 10px;
+}
+
+
+footer{
+  font-family: nav-font;
+  position: absolute;
+  bottom: 0;
+  background-color: #2F4056;
+  color: white;
+  .friendly-link{
+    ol{
+      li{
+        display: inline-block;
+        a{
+          margin-left: 5px;
+          color: white;
+        }
+      }
+    }
+  }
+}

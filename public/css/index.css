@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/*字体*/
+@font-face {
+  font-family: nav-font;
+  src: url("../font/腾祥麦黑简.ttf");
+}
+@font-face {
+  font-family: 'iconfont';
+  /* project id 587073 */
+  src: url("//at.alicdn.com/t/font_587073_1tovxdkjvbw0o1or.eot");
+  src: url("//at.alicdn.com/t/font_587073_1tovxdkjvbw0o1or.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_587073_1tovxdkjvbw0o1or.woff") format("woff"), url("//at.alicdn.com/t/font_587073_1tovxdkjvbw0o1or.ttf") format("truetype"), url("//at.alicdn.com/t/font_587073_1tovxdkjvbw0o1or.svg#iconfont") format("svg");
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  cursor: pointer;
+}
+
+.page-one .nav {
+  font-family: nav-font;
+}
+.page-one .article-Group .article-list {
+  border: solid 2px saddlebrown;
+}
+.page-one .article-Group img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+.page-one .article-Group img, .page-one .article-Group h3, .page-one .article-Group div {
+  display: inline-block;
+  margin-top: 10px;
+}
+.page-one .article-Group h3, .page-one .article-Group div {
+  padding-left: 10px;
+}
+.page-one .article-Group .title a:hover {
+  color: red;
+}
+.page-one .article-Group .time {
+  color: #c2c2c2;
+}
+.page-one .page-change {
+  margin: 10px;
+}
+.page-one .page-change p {
+  margin-top: 10px;
+  color: #FF5722;
+}
+.page-one .zilou-block {
+  /*纸篓内容块*/
+  box-shadow: #c2c2c2 1px 1px 1px;
+}
+.page-one .zilou-block span {
+  padding: 5px;
+  display: inline-block;
+}
+.page-one .zilou-block span img {
+  width: 75px;
+  height: 75px;
+}
+.page-one .zilou-block .zilou-body {
+  /*纸篓文章主体*/
+  padding: 20px;
+  white-space: pre-line;
+  height: 200px;
+}
+
+.zilou-change {
+  margin-top: 10px;
+}
+
+footer {
+  font-family: nav-font;
+  position: absolute;
+  bottom: 0;
+  background-color: #2F4056;
+  color: white;
+}
+footer .friendly-link ol li {
+  display: inline-block;
+}
+footer .friendly-link ol li a {
+  margin-left: 5px;
+  color: white;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>纸篓/与过往和解</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <link rel="stylesheet" href="static/css/zilou.css">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="row">
+        <div class="layui-col-md5 layui-col-md-offset3 layui-col-xs8 layui-col-xs-offset2 header">
+            <h2>纸篓</h2><h2><a href="/">首页</a></h2>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<div class="layui-fluid warp">
+    <div class="layui-row ">
+        <div class="layui-col-md10 layui-col-md-offset2 layui-colxs11 zilou-Group">
+            <div class="layui-col-md3 layui-col-xs11 zilou animated bounceInRight">
+                <div class="autor-msg">
+                    <p><img class="layui-btn-radius" src="static/images/1.jpg" alt="."></p>
+                    <p> 陈独秀<small>17-jj-dd</small></p>
+                </div>
+                <div class="zilou-body" id="zilou-body1">
+                    姐姐斐济斐济飞机ss姐姐斐济斐济飞机ss额减姐姐斐济斐济飞机ss额减肥减肥姐姐斐济斐济飞机ss额减肥减肥肥姐姐斐济斐济飞机ss额减肥减肥肥减肥姐姐斐济斐济飞机ss额减姐姐斐济斐济飞机ss额减肥减肥姐姐斐济斐济飞机ss额减肥减肥肥姐姐斐济斐济飞机ss额减肥减肥肥减肥姐姐斐济斐济飞机ss额减姐姐斐济斐济飞机ss额减肥减肥姐姐斐济斐济飞机ss额减肥减肥肥姐姐斐济斐济飞机ss额减肥减肥肥减肥额减姐姐斐济斐济飞机ss额减肥减肥姐姐斐济斐济飞机ss额减肥减肥
+                    姐姐斐济斐济飞机ss额减姐姐斐济斐济飞机ss额减肥减qwweqwewewewewewe肥姐姐斐济斐济飞机ss额减肥减肥肥姐姐斐济斐济飞机ss额减肥减肥肥减肥
+                    115
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="layui-col-md10 layui-col-md-offset2 layui-colxs11 page-change">
+            <button class="layui-btn" id="last-page">
+                <i class="layui-icon">&#xe603;</i>
+            </button>
+            <button class="layui-btn" id="next-page">
+                <i class="layui-icon">&#xe602; </i>
+            </button>
+            <div class="zilou-info">
+                <p class="animated slideInUp">当前第1页，共3页</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="static/layui/layui.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+var zilouAmount=0;
+var nowZilou = 1;
+
+$.post('/getallzilou?username=',{isuser:0},function (result) {
+    zilouAmount=parseInt(result);
+    console.log(zilouAmount);
+    $('.zilou-info').html('').append('<p class="layui-anim layui-anim-scale" style="color: #FF5722">当前第'+nowZilou+'页，共'+Math.ceil(zilouAmount/3)+'页</p>')
+    return zilouAmount
+});
+//获取纸片
+function getZilou(mypage) {
+    $('.zilou-Group').html('');
+    $.post('/getzilou?page=', {isuser: 0, mypage: mypage,getdata:3}, function (result) {
+        for(var i=0;i<result.length;i++){
+            $('.zilou-Group').append('<div class="layui-col-md3 layui-col-xs11 zilou "> ' +
+                '<div class="autor-msg"> <p><img class="layui-btn-radius" src="static/avatar/'+result[i].author+'.jpg" alt="."></p> ' +
+                '<p>'+result[i].author+'<small>'+result[i].time+'</small></p> </div> <div class="zilou-body animated bounceInRight" id="zilou-body">'+result[i].body+'</div>')
+        }
+    })
+}
+getZilou(nowZilou)
+
+//上一页
+$("body").on("click","#last-page",function(){
+    if (nowZilou==1){
+        $('.zilou-info').html('').append('<p class="layui-anim layui-anim-scale" style="color: #FF5722">骚年，已经是第一页了</p>')
+    }else{
+        nowZilou-=1;
+        getZilou(nowZilou,zilouAmount);
+    }
+});
+//下一页
+$("body").on("click","#next-page",function(){
+    if (nowZilou==Math.ceil(zilouAmount/3)){
+        $('.zilou-info').html('').append('<p class="layui-anim layui-anim-scale" style="color: #FF5722">骚年，已经是最后一页了</p>')
+    }else{
+        nowZilou+=1;
+        getZilou(nowZilou,zilouAmount);
+    }
+});
+</script>
+
+</body>
+</html>

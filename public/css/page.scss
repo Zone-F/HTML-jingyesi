@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@import "variable";
+.header{
+  @include header;
+}
+
+.page-warp{
+  padding-top: 5%;
+    img{
+      width: 50px;
+      height: 50px;
+  }
+  .time{
+    color: $huise;
+  }
+  //文章主体
+  .page-content{
+    width: 100%;
+    white-space: pre-line;
+    word-break: break-all;
+  }
+  //点赞框
+  .like{
+    padding: 8% 0;
+  }
+}

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>登陆</title>
+
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <!-- Start Sign In Form -->
+            <div class="fh5co-form animate-box" data-animate-effect="fadeIn">
+                <h2>登陆</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" placeholder="用户名" >
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="密码" >
+                </div>
+                <div class="form-group">
+                    <label for="remember"><input type="checkbox" id="remember"> Remember Me</label>
+                </div>
+                <div class="form-group">
+                    <p>还没有账号？<a href="/register">注册</a> | <a href="forgot.html">忘记密码?</a>| <a href="/">返回首页</a></p>
+                </div>
+                <div class="form-group">
+                    <input id="login-button" type="submit" value="登陆" class="btn btn-primary">
+                </div>
+            </div>
+            <!-- END Sign In Form -->
+        </div>
+    </div>
+</div>
+
+<script src="static/layui/layui.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+
+<script>
+    layui.use(['layer'], function(){
+        var layer = layui.layer;
+
+        $('#login-button').click(function () {
+            $.post('/dologin',{
+                username:$("#username").val(),
+                password:$("#password").val(),
+            },function (result) {
+                if (result == 1){
+                    layer.msg('登陆成功，3秒后跳转到首页')
+                    setTimeout(window.location.href="http://120.79.25.54",3000)
+                }else{
+                    layer.msg('登陆失败，请检查用户名或密码是否正确')
+                }
+            })
+        })
+    });
+</script>
+</body>
+</html>

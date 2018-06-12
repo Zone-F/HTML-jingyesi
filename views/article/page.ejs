@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>title</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <link rel="stylesheet" href="static/css/page.css">
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row ">
+        <div class="layui-col-md5 layui-col-md-offset3 layui-col-xs8 layui-col-xs-offset2 header">
+            <h2 ><a href="/page">孤读</a></h2><h2><a href="/">首页</a></h2>
+        </div>
+        <hr>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md4 layui-col-md-offset4  layui-col-xs10 page-warp">
+            <div class="layui-col-xs12">
+                <h2><%= title%></h2>
+                <br/>
+                <img src="static/avatar/<%= author%>.jpg"  class="layui-btn-radius" alt="头像加载失败">
+                &nbsp;<span class="time"><%= author%>&nbsp;<%= time%></span>
+            </div>
+            <div class="layui-col-xs12 page-content">
+                <p class=" layui-anim layui-anim-scale"><%= body%></p>
+            </div>
+            <div class="layui-col-xs12">
+                <div class="like">
+                    <a class="iconfont" href="javascript:void (0)" id="like">&#xe687;&nbsp;喜欢<span><%= likeNumber%></span></a>
+                    <a href="javascript:void (0)" class="iconfont" id="share">&#xe618;&nbsp;分享</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="static/layui/layui.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+    var urlid=window.location.search;
+    var myid = urlid.split("=")[1]
+    $('#like').click(function () {
+
+        var likeNumber = $('#like').children('span').text()
+        var theNumber=Number(likeNumber)
+        theNumber +=1
+        $(this).children('span').text(theNumber);
+        $.get('/changelikenumber?id='+ myid+'',{
+            "likenumber":theNumber
+        },function (result) {
+//            if (result==1){window.location.reload()}
+        })
+    })
+
+    $('#share').click(function () {
+        alert("分享功能开发中")
+    })
+</script>
+</body>
+</html>

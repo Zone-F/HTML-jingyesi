@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <style>
+        @font-face {
+            font-family: nav-font;
+            src: url("static/font/腾祥麦黑简.ttf");
+        }
+        a {
+            cursor: pointer;
+        }
+
+        .header {
+            font-family: nav-font;
+            padding: 20px;
+        }
+        .header h2 {
+            display: inline-block;
+        }
+        .header h2:last-child {
+            position: absolute;
+            right: 0;
+        }
+        .header h2:last-child a {
+            color: #FFB800;
+        }
+    </style>
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row ">
+        <div class="layui-col-md5 layui-col-md-offset3 layui-col-xs8 layui-col-xs-offset2 header">
+            <h2><a href="javascript:void (0)">写文章</a></h2>
+            <h2><a href="/">首页</a></h2>
+        </div>
+        <hr>
+    </div>
+    <div class="layui-row">
+        <blockquote class="layui-elem-quote layui-col-md5 layui-col-md-offset3 layui-col-xs12" style="color: #1E9FFF">文本框可以拖动放大哦。</blockquote>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md5 layui-col-md-offset3 layui-col-xs12">
+            <form class="layui-form layui-form-pane" >
+                <div class="layui-form-item">
+                    <label class="layui-form-label">文章标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" ID="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">文章主体</label>
+                    <div class="layui-input-block">
+                        <textarea id="body" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                        <button id="go" class="layui-btn" >立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<p id="atitle"></p>
+<script src="static/layui/layui.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+$(document).ready(function () {
+
+    var url = location.search; //获取url中"?"符后的字串
+    var id = url.split('=')[1]
+
+    $.get('getarticlebyid',{id:id},function (result) {
+        $('#title').val(result.title)
+        $('#body').val(result.body)
+    })
+
+    $("body").on("click","#go",function(){
+        $.post('/doupdate',{
+            id:id,
+            title:$('#title').val(),
+            body:$('#body').val(),
+        },function (result) {
+            if (result==1){
+                alert("修改成功")
+                location.href="http://120.79.25.54"
+            }
+        })
+    });
+})
+
+</script>
+</body>
+</html>

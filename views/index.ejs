@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+</head>
+<body>
+<div class="layui-container page-one">
+    <div class="layui-row ">
+        <div class="layui-col-xs12 nav">
+            <ul class="layui-nav">
+                <li class="layui-nav-item layui-this"><a href="/">静夜思</a></li>
+                <li class="layui-nav-item"><a href="/zilou">纸篓</a></li>
+                <li class="layui-nav-item"><a href="/write">写文章</a></li>
+                <li class="layui-nav-item"><a href="/zilouwrite">写纸片</a></li>
+                <li class="layui-nav-item"><a href="/aboutus">关于我们</a></li>
+                <% if(!login){%>
+                <li class="layui-nav-item"><a href="/login">登陆/注册</a></li>
+                <%} else {%>
+                <li class="layui-nav-item"><a href="/admin">个人中心</a></li>
+                <li class="layui-nav-item"><a href="/logout">退出登录</a></li>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-xs12" style="margin-top: 10px">
+            <div class="layui-col-md7 layui-col-xs12">
+                <blockquote class="layui-elem-quote">孤读/诗酒趁年华。</blockquote>
+                <div class="article-Group">
+                    <div class="layui-col-xs12 ">
+                        <div class="articel-list layui-col-md6 layui-col-xs12">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs12 page-change">
+                    <button class="layui-btn layui-btn-sm" id="last-page">
+                        <i class="layui-icon">&#xe603;</i>
+                    </button>
+                    <button class="layui-btn layui-btn-sm" id="next-page">
+                        <i class="layui-icon">&#xe602; </i>
+                    </button>
+                    <div class="page-info">
+                        <p class="layui-anim layui-anim-scale">总共3页，当前第1页</p>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md5 layui-col-xs12">
+                <blockquote class="layui-elem-quote">纸篓/与过往和解。</blockquote>
+                <div class="layui-col-xs10 layui-col-xs-offset1 zilou-block">
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-xs10 layui-col-xs-offset1 zilou-change">
+                        <button class="layui-btn layui-btn-radius" id="next-zilou">
+                            <i class="layui-icon">&#xe61a;</i>
+                        </button>
+                        <div class="zilou-info">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-container">
+    <div class="layui-row layui-footer">
+        <footer class="layui-col-xs12">
+            <div class="layui-col-xs4">
+                <p>©2017 &*....%....</p>
+                <p>静夜思,一个分享读后感的网站</p>
+                <p>ICP备号-1</p>
+            </div>
+            <div class="layui-col-xs8 friendly-link">
+                <ol>
+                    <li>友情链接:</li>
+                    <li><a href="http://kindle.archiew.top/">书舟网</a></li>
+                </ol>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="static/layui/layui.js"></script>
+<script src="static/js/index.js"></script>
+</body>
+</html>

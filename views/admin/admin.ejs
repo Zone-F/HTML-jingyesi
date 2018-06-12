@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>个人中心</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <link rel="stylesheet" href="static/css/admin.css">
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row">
+        <div class="layui-col-md4 layui-col-md-offset3 layui-col-xs8 layui-col-xs-offset2 header">
+            <h2><a href="javascript:void(0)">个人中心</a></h2>
+            <h2><a href="/">首页</a></h2>
+        </div>
+        <hr>
+    </div>
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset3  admin-msg">
+                <img src="static/avatar/<%= avatar%>" class="layui-btn-radius">
+                <p>用户名：<span><%= username%></span></p>
+                <p>邮箱：<span><%= email%></span></p>
+                <button type="button" class="layui-btn" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>更换头像
+                </button>
+                <p ><h2 style="color: #FF5722">请在更换头像后手动刷新页面</h2></p>
+            </div>
+        </div>
+        <div class="layui-col-md6 layui-col-md-offset3 ">
+            <div class="layui-col-xs12">
+                <ul class="layui-nav layui-bg-blue" id="nav-list">
+                    <li class="layui-nav-item layui-this"><a href="javascript:void(0)" id="change-userinfo">我的资料</a></li>
+                    <li class="layui-nav-item "><a href="javascript:void(0)" id="my-page">我的文章</a></li>
+                    <li class="layui-nav-item"><a href="javascript:void(0)" id="zilou">纸篓</a></li>
+                </ul>
+            </div>
+            <div class="layui-col-xs12" id="content-box">
+                <div class="layui-col-xs8 layui-inline" style="padding-top:5px">
+                    <input type="text" id="email" placeholder="输入新邮箱" class="layui-input layui-input-inline">
+                </div>
+                <div class="layui-col-xs4 layui-inline" style="padding-top:5px">
+                    <a href="javascript:void (0)" id="btn1" class="layui-btn">修改邮箱</a>
+                </div>
+                <div class="layui-col-xs8 layui-inline" style="padding-top:5px">
+                    <input type="text" id="username" placeholder="输入新用户名" class="layui-input layui-input-inline">
+                </div>
+                <div class="layui-col-xs4 layui-inline" style="padding-top:5px">
+                    <a  href="javascript:void (0)" id="btn2" class="layui-btn">修改用户名</a>
+                </div>
+                <p><a style="margin: 10px 0;" class="layui-btn layui-btn-xs" href="/zilouwrite" > 与过往和解</a>
+                <p><a style="margin: 10px 0;" class="layui-btn layui-btn-xs" href="/write" > 灵感来了挡不住，快扶朕去写作</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="static/layui/layui.js"></script>
+<script src="static/js/admin.js"></script>
+</body>
+</html>
